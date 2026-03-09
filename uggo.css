@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  text-align: center;
+  color: yellow;
+  background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  cursor: url("https://cur.cursors-4u.net/symbols/sym-1/sym55.cur"), auto;
+}
+
+/* moving top banner */
+marquee {
+  background: hotpink;
+  color: cyan;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 12px;
+  border: 6px dotted lime;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* big ugly title */
+h1 {
+  font-size: 4rem;
+  color: lime;
+  background: rgba(0, 0, 0, 0.65);
+  border: 8px double yellow;
+  padding: 20px;
+  margin: 20px auto;
+  width: 85%;
+  text-shadow: 3px 3px 0 red, 6px 6px 0 blue, 9px 9px 0 magenta;
+  transform: rotate(-2deg);
+}
+
+/* subtitle */
+.subtitle {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: hotpink;
+  background: rgba(0, 0, 70, 0.75);
+  border: 4px dashed cyan;
+  padding: 12px 20px;
+  margin-bottom: 25px;
+}
+
+/* buttons */
+.button-row {
+  margin: 20px 0 30px;
+}
+
+button {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 1.3rem;
+  padding: 15px 20px;
+  margin: 10px;
+  color: white;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+  border: 5px outset hotpink;
+  box-shadow: 0 0 20px yellow;
+  transform: rotate(2deg);
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.2) rotate(-8deg);
+  border-radius: 30px;
+  background: linear-gradient(to right, purple, blue, green, yellow, orange, red);
+  color: black;
+}
+
+/* gif section */
+.gif-zone {
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 10px groove magenta;
+  box-shadow: 0 0 25px cyan;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: cyan;
+  text-transform: uppercase;
+  text-decoration: underline wavy yellow;
+  letter-spacing: 4px;
+}
+
+/* gif layout */
+.gif-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gif-grid img {
+  width: 220px;
+  height: 180px;
+  object-fit: cover;
+  border: 8px dashed yellow;
+  box-shadow: 0 0 25px hotpink;
+  transform: rotate(4deg);
+  transition: all 0.3s ease;
+}
+
+.gif-grid img:nth-child(even) {
+  transform: rotate(-6deg);
+}
+
+.gif-grid img:hover {
+  transform: scale(1.15) rotate(12deg);
+  border-radius: 50%;
+  filter: hue-rotate(120deg) saturate(2);
+}
+
+/* content box */
+.content-box {
+  width: 80%;
+  margin: 25px auto;
+  padding: 20px;
+  background: rgba(255, 0, 255, 0.3);
+  border: 8px ridge cyan;
+  box-shadow: 0 0 30px lime;
+}
+
+.content-box p {
+  font-size: 1.4rem;
+}
+
+/* blinking text */
+.blink {
+  display: inline-block;
+  font-size: 2rem;
+  color: red;
+  background: yellow;
+  padding: 10px 18px;
+  animation: blink 0.7s infinite;
+}
+
+/* spinning text */
+.spin-text {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  color: lime;
+  animation: spin 3s linear infinite;
+}
+
+/* footer */
+footer {
+  margin-top: 40px;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.75);
+  border-top: 6px dotted white;
+  color: hotpink;
+  font-size: 1.2rem;
+}
+
+/* animations */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; color: blue; }
+  100% { opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.2); }
+}
+
