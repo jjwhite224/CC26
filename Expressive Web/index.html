@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Listening Room</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="room" class="room default">
+    <div class="overlay"></div>
+
+    <section class="content">
+      <h1>The Listening Room</h1>
+      <p id="moodText">Choose a mood to change the room.</p>
+
+      <div class="jukebox">
+        <div class="screen" id="screenText">Station idle...</div>
+
+        <div class="buttons">
+          <button class="mood-btn" data-mood="dreamy" data-song="assets/audio/dreamy.mp4">
+            Dreamy
+          </button>
+          <button class="mood-btn" data-mood="lonely" data-song="assets/audio/lonely.mp4">
+            Lonely
+          </button>
+          <button class="mood-btn" data-mood="energetic" data-song="assets/audio/energetic.mp4">
+            Energetic
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="particles" id="particles"></div>
+
+    <audio id="player"></audio>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

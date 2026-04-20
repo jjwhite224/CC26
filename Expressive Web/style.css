@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.room {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.8s ease, color 0.8s ease;
+  color: white;
+}
+
+/* Default room */
+.room.default {
+  background: radial-gradient(circle at center, #2c2c2c, #0d0d0d);
+}
+
+/* Mood states */
+.room.dreamy {
+  background:
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+    url("assets/dreamy-room.jpg") center/cover no-repeat;
+}
+
+.room.lonely {
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("assets/lonely-room.jpg") center/cover no-repeat;
+}
+
+.room.energetic {
+  background:
+    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+    url("assets/energetic-room.jpg") center/cover no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: min(90%, 700px);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#moodText {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.jukebox {
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.screen {
+  background: rgba(0,0,0,0.4);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mood-btn {
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.mood-btn:hover {
+  transform: scale(1.05);
+}
+
+.room.default .mood-btn {
+  background: #d4d4d4;
+  color: #111;
+}
+
+.room.dreamy .mood-btn {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.room.lonely .mood-btn {
+  background: #cbd5e1;
+  color: #111827;
+}
+
+.room.energetic .mood-btn {
+  background: #fde68a;
+  color: #7c2d12;
+}
+
+/* Floating particles */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+/* Optional room pulse for energetic mode */
+.room.energetic .jukebox {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
