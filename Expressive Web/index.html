@@ -3,30 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Listening Room</title>
+  <title>The Living Radio</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.min.js"></script>
 </head>
 <body>
   <main id="room" class="room default">
     <div class="overlay"></div>
 
     <section class="content">
-      <h1>The Listening Room</h1>
-      <p id="moodText">Choose a mood to change the room.</p>
+      <h1>The Living Radio</h1>
+      <p id="moodText">Tune a station and let the page become your broadcast space.</p>
 
-      <div class="jukebox">
-        <div class="screen" id="screenText">Station idle...</div>
+      <div class="experience-layout">
+        <div class="radio-stage" aria-label="Interactive radio panel">
+          <div id="visualizer" class="visualizer"></div>
+          <div id="staticFlash" class="static-flash" aria-hidden="true"></div>
+          <div class="dial-glow"></div>
+          <div class="on-air-pill" id="onAirIndicator">OFF AIR</div>
+          <button class="radio-control dial" id="dialControl" data-control="dial" type="button" aria-label="Turn volume dial">
+            <span class="dial-center"></span>
+            <span class="dial-marker"></span>
+          </button>
+          <button class="radio-control antenna" id="antennaControl" data-control="antenna" type="button" aria-label="Adjust antenna height">
+            <span class="antenna-rod"></span>
+            <span class="antenna-handle"></span>
+          </button>
+          <button class="radio-control speaker" id="speakerControl" data-control="speaker" type="button">Tap Speaker</button>
+          <div class="signal-bars" aria-hidden="true">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
 
-        <div class="buttons">
-          <button class="mood-btn" data-mood="dreamy" data-song="assets/audio/dreamy.mp4">
-            Dreamy
-          </button>
-          <button class="mood-btn" data-mood="lonely" data-song="assets/audio/lonely.mp4">
-            Lonely
-          </button>
-          <button class="mood-btn" data-mood="energetic" data-song="assets/audio/energetic.mp4">
-            Energetic
-          </button>
+        <div class="jukebox">
+          <div class="screen" id="screenText">Station idle...</div>
+          <p id="callerText">Caller line: No incoming voices yet.</p>
+
+          <div class="buttons">
+            <button class="mood-btn" data-mood="dreamy" data-song="assets/audio/dreamy.mp4">
+              Dreamy
+            </button>
+            <button class="mood-btn" data-mood="lonely" data-song="assets/audio/lonely.mp4">
+              Lonely
+            </button>
+            <button class="mood-btn" data-mood="energetic" data-song="assets/audio/energetic.mp4">
+              Energetic
+            </button>
+          </div>
+
+          <div class="buttons utility-buttons">
+            <button id="toggleAudioBtn" type="button">Pause Audio</button>
+            <button id="resetBtn" type="button">Reset Radio</button>
+          </div>
+
+          <p id="objectText">Tip: drag the dial, lift the antenna, and tap the speaker.</p>
         </div>
       </div>
     </section>
