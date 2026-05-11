@@ -95,11 +95,11 @@ button {
 
 .atmosphere {
   z-index: 1;
-  opacity: calc(0.35 + var(--pulse) * 0.35);
+  opacity: calc(0.35 + var(--pulse) * 0.45);
   background:
     radial-gradient(circle at var(--mx) var(--my), var(--accent-soft), transparent 38%),
     linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 18%, transparent), transparent);
-  filter: blur(12px);
+  filter: blur(16px);
   animation: drift 12s ease-in-out infinite alternate;
 }
 
@@ -125,7 +125,7 @@ button {
 }
 
 h1 {
-  font-size: clamp(1.6rem, 7vw, 3.8rem);
+  font-size: clamp(3.2rem, 7vw, 7.6rem);
   line-height: 0.84;
   letter-spacing: -0.085em;
   text-shadow: 0 0 calc(28px + var(--pulse) * 48px) var(--accent-soft);
@@ -263,8 +263,7 @@ h1 {
     translate(-50%, -50%)
     translateZ(var(--z))
     rotateY(var(--ry))
-    rotateX(var(--rx))
-    scale(var(--hover-scale, 1));
+    rotateX(var(--rx));
   border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--accent) 15%, transparent), rgba(255,255,255,0.018));
@@ -274,16 +273,6 @@ h1 {
   opacity: calc(0.16 + var(--pulse) * 0.5);
   animation: growIn 1000ms cubic-bezier(.2,.8,.2,1) both, panelFloat var(--speed) ease-in-out infinite alternate;
   animation-delay: var(--delay), calc(var(--delay) + 600ms);
-  will-change: transform, opacity;
-  transition: transform 0.2s ease;
-}
-
-.now-playing-text {
-  color: var(--accent);
-  font-size: 0.94rem;
-  margin: 0.55rem 0 0;
-  min-height: 24px;
-  opacity: 0.92;
 }
 
 .arch-piece.ring {
@@ -311,12 +300,14 @@ h1 {
   from {
     opacity: 0;
     transform: translate(-50%, 80%) translateZ(-280px) rotateX(70deg) scaleY(0.05);
+    filter: blur(8px);
   }
 }
 
 @keyframes panelFloat {
   to {
     translate: 0 calc(-10px - var(--pulse) * 28px);
+    filter: brightness(calc(1 + var(--pulse) * 0.35));
   }
 }
 
@@ -338,10 +329,10 @@ h1 {
   min-height: 8px;
   border-radius: 999px 999px 0 0;
   background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 16px var(--accent-soft);
   opacity: calc(0.35 + var(--pulse) * 0.58);
   transform-origin: bottom;
   transform: scaleY(calc(0.55 + var(--pulse) * 0.75));
-  will-change: height, opacity;
 }
 
 .signal-orb {
@@ -351,8 +342,7 @@ h1 {
   height: 180px;
   margin-left: -90px;
   margin-top: -90px;
-  transform: translateZ(60px);
-  will-change: transform;
+  transform: translateZ(120px);
 }
 
 .signal-orb::before,
@@ -365,7 +355,6 @@ h1 {
   border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
   box-shadow: 0 0 calc(26px + var(--pulse) * 54px) var(--accent-soft);
   transform: scale(calc(0.62 + var(--pulse) * 0.48));
-  will-change: transform, box-shadow;
 }
 
 .signal-orb::after {
@@ -395,7 +384,7 @@ h1 {
   padding: 1.15rem;
   border-radius: 28px;
   background: rgba(3, 6, 18, 0.72);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(18px);
   border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45), 0 0 50px var(--accent-soft);
 }

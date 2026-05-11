@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SomaFM — The Living Radio: Signal Rooms</title>
+  <title>The Living Radio — Signal Rooms</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
   <main id="room" class="room station-idle" data-state="idle">
@@ -14,12 +13,11 @@
 
     <section class="title-card" aria-labelledby="siteTitle">
       <p class="eyebrow">interactive radio room / signal visualizer</p>
-      <h1 id="siteTitle">SomaFM — The Living Radio</h1>
+      <h1 id="siteTitle">The Living Radio</h1>
       <p id="roomText">Tune a live stream and let the signal build a room around you.</p>
     </section>
 
     <section class="space-wrap" aria-label="Generative listening room">
-      <div id="p5-container" style="position: absolute; inset: 0; pointer-events: none; z-index: 0;"></div>
       <div class="room-shell" id="roomShell">
         <div class="plane wall-back"></div>
         <div class="plane wall-left"></div>
@@ -46,7 +44,6 @@
       </div>
 
       <div class="screen" id="screenText">No station locked.</div>
-      <p id="nowPlayingText" class="now-playing-text">Now playing: SomaFM station info will appear here.</p>
       <p id="storyText" class="story-text">The room is quiet. Static is waiting in the walls.</p>
 
       <div class="tuner-block">
@@ -76,7 +73,7 @@
 
       <div class="station-grid" id="stationGrid" aria-label="Station presets"></div>
 
-      <p class="note">Live audio plays through the browser. Each station now has its own visual language and click interaction.</p>
+      <p class="note">Live audio plays through the browser. The visualizer is generative, so it avoids CORS problems with internet streams. Each station now has its own visual language and click interaction.</p>
     </aside>
 
     <audio id="player" preload="none" crossorigin="anonymous"></audio>
