@@ -379,10 +379,11 @@ function createDroneZoneSketch(p) {
   const ripples = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
     p.clear();
-    for (let i = 0; i < 30; i += 1) {
-      particles.push({ x: p.random(p.width), y: p.random(p.height), vx: p.random(-0.1, 0.1), vy: p.random(-0.2, 0.2), life: p.random(0.5, 1) });
+    for (let i = 0; i < 20; i += 1) {
+      particles.push({ x: p.random(p.width), y: p.random(p.height), vx: p.random(-0.05, 0.05), vy: p.random(-0.1, 0.1), life: p.random(0.5, 1) });
     }
   };
 
@@ -415,8 +416,8 @@ function createDroneZoneSketch(p) {
     }
 
     ripples.forEach((rip, index) => {
-      rip.r += 1.8;
-      rip.life -= 0.022;
+      rip.r += 1.2;
+      rip.life -= 0.018;
       p.stroke(147, 197, 253, rip.life * 140);
       p.strokeWeight(2);
       p.noFill();
@@ -426,7 +427,8 @@ function createDroneZoneSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -443,9 +445,10 @@ function createGrooveSketch(p) {
   const grooves = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 40; i += 1) {
-      particles.push({ x: p.random(p.width), y: p.random(p.height * 0.65, p.height), vy: p.random(-0.3, -0.05), alpha: p.random(40, 90) });
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 25; i += 1) {
+      particles.push({ x: p.random(p.width), y: p.random(p.height * 0.65, p.height), vy: p.random(-0.2, -0.02), alpha: p.random(40, 90) });
     }
   };
 
@@ -456,8 +459,8 @@ function createGrooveSketch(p) {
     p.rect(0, 0, p.width, p.height);
 
     grooves.forEach((groove, index) => {
-      groove.r += 1.4;
-      groove.life -= 0.018;
+      groove.r += 1.0;
+      groove.life -= 0.015;
       p.stroke(250, 204, 21, groove.life * 90);
       p.noFill();
       p.strokeWeight(2);
@@ -474,7 +477,8 @@ function createGrooveSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -492,8 +496,9 @@ function createDeepSpaceSketch(p) {
   const hud = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 80; i += 1) {
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 50; i += 1) {
       stars.push({ x: p.random(p.width), y: p.random(p.height), size: p.random(1, 2.5), alpha: p.random(60, 140) });
     }
     for (let i = 0; i < 3; i += 1) {
@@ -532,7 +537,7 @@ function createDeepSpaceSketch(p) {
 
     satellites.forEach((sat, index) => {
       sat.angle += sat.speed;
-      sat.life -= 0.015;
+      sat.life -= 0.012;
       const x = cx + p.cos(sat.angle) * sat.radius;
       const y = cy + p.sin(sat.angle) * sat.radius;
       p.fill(168, 85, 247, sat.life * 200);
@@ -542,7 +547,8 @@ function createDeepSpaceSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -559,11 +565,12 @@ function createStationSketch(p) {
   const windows = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 60; i += 1) {
-      stars.push({ x: p.random(p.width), y: p.random(p.height), alpha: p.random(60, 130), speed: p.random(0.01, 0.04) });
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 40; i += 1) {
+      stars.push({ x: p.random(p.width), y: p.random(p.height), alpha: p.random(60, 130), speed: p.random(0.005, 0.02) });
     }
-    for (let i = 0; i < 8; i += 1) {
+    for (let i = 0; i < 6; i += 1) {
       windows.push({ x: p.random(p.width), y: p.random(p.height * 0.6), alpha: p.random(40, 90), phase: p.random(1000) });
     }
   };
@@ -589,7 +596,8 @@ function createStationSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 }
 
@@ -598,8 +606,9 @@ function createVaporwavesSketch(p) {
   const fingerprints = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 20; i += 1) {
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 15; i += 1) {
       lines.push({ y: p.height * 0.2 + i * 30, offset: p.random(1000) });
     }
   };
@@ -613,7 +622,7 @@ function createVaporwavesSketch(p) {
 
     p.noFill();
     lines.forEach((line) => {
-      line.offset += 0.02;
+      line.offset += 0.015;
       p.stroke(320, 100, 90, 55);
       p.beginShape();
       for (let x = 0; x <= p.width; x += 40) {
@@ -624,8 +633,8 @@ function createVaporwavesSketch(p) {
     });
 
     fingerprints.forEach((fp, index) => {
-      fp.y += 1.2;
-      fp.life -= 0.018;
+      fp.y += 0.8;
+      fp.life -= 0.015;
       p.fill(320, 100, 100, fp.life * 90);
       p.noStroke();
       p.rect(fp.x - 10, fp.y, 20, 20, 4);
@@ -634,7 +643,8 @@ function createVaporwavesSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -651,8 +661,9 @@ function createBeatSketch(p) {
   const pulses = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 10; i += 1) {
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 8; i += 1) {
       bars.push({ x: 50 + i * 60, height: p.random(40, 120), target: p.random(40, 140) });
     }
   };
@@ -664,15 +675,15 @@ function createBeatSketch(p) {
     p.rect(0, 0, p.width, p.height);
 
     bars.forEach((bar) => {
-      bar.height += (bar.target - bar.height) * 0.08;
-      if (p.frameCount % 40 === 0) bar.target = p.random(40, 160);
+      bar.height += (bar.target - bar.height) * 0.06;
+      if (p.frameCount % 50 === 0) bar.target = p.random(40, 160);
       p.fill(52, 211, 153, 180);
       p.rect(bar.x, p.height - bar.height - 80, 24, bar.height);
     });
 
     pulses.forEach((pulse, index) => {
-      pulse.size += 2;
-      pulse.life -= 0.02;
+      pulse.size += 1.5;
+      pulse.life -= 0.015;
       p.stroke(52, 211, 153, pulse.life * 150);
       p.noFill();
       p.rect(pulse.x - pulse.size / 2, pulse.y - pulse.size / 2, pulse.size, pulse.size, 6);
@@ -681,7 +692,8 @@ function createBeatSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -699,23 +711,24 @@ function createAgentSketch(p) {
   let radarAngle = 0;
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 7; i += 1) {
-      blinds.push({ y: i * (p.height / 7), offset: p.random(1000) });
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 5; i += 1) {
+      blinds.push({ y: i * (p.height / 5), offset: p.random(1000) });
     }
   };
 
   p.draw = function () {
     p.clear();
     p.background(8, 8, 12, 40);
-    radarAngle += 0.02;
+    radarAngle += 0.015;
     const cx = p.width / 2;
     const cy = p.height / 2;
 
     p.fill(249, 115, 22, 18);
     p.noStroke();
     blinds.forEach((blind) => {
-      blind.offset += 0.04;
+      blind.offset += 0.03;
       const y = blind.y + p.sin(blind.offset) * 6;
       p.rect(0, y, p.width, 8);
     });
@@ -727,7 +740,7 @@ function createAgentSketch(p) {
     p.line(cx, cy, cx + p.cos(radarAngle) * 70, cy + p.sin(radarAngle) * 70);
 
     clues.forEach((clue, index) => {
-      clue.life -= 0.02;
+      clue.life -= 0.015;
       p.fill(249, 115, 22, clue.life * 180);
       p.noStroke();
       p.rect(clue.x - 5, clue.y - 5, 10, 10);
@@ -736,7 +749,8 @@ function createAgentSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -753,8 +767,9 @@ function createSynphaerSketch(p) {
   const shards = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    for (let i = 0; i < 25; i += 1) {
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
+    for (let i = 0; i < 15; i += 1) {
       shards.push({ x: p.random(p.width), y: p.random(p.height), size: p.random(20, 50), angle: p.random(p.TWO_PI) });
     }
   };
@@ -765,7 +780,7 @@ function createSynphaerSketch(p) {
     p.stroke(56, 189, 248, 110);
     p.noFill();
     shards.forEach((shard) => {
-      shard.angle += 0.002;
+      shard.angle += 0.001;
       p.push();
       p.translate(shard.x, shard.y);
       p.rotate(shard.angle);
@@ -776,7 +791,7 @@ function createSynphaerSketch(p) {
     });
 
     beams.forEach((beam, index) => {
-      beam.life -= 0.02;
+      beam.life -= 0.015;
       p.stroke(56, 189, 248, beam.life * 150);
       p.line(beam.x1, beam.y1, beam.x2, beam.y2);
       if (beam.life <= 0) beams.splice(index, 1);
@@ -784,7 +799,8 @@ function createSynphaerSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -803,10 +819,11 @@ function createDefconSketch(p) {
   const packets = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
     p.textSize(12);
     p.textFont('monospace');
-    for (let i = 0; i < 200; i += 1) {
+    for (let i = 0; i < 100; i += 1) {
       chars.push({ x: p.random(p.width), y: p.random(p.height), char: String.fromCharCode(48 + p.floor(p.random(10))), alpha: p.random(30, 120) });
     }
   };
@@ -823,7 +840,7 @@ function createDefconSketch(p) {
 
     packets.forEach((packet, index) => {
       packet.x += packet.vx;
-      packet.life -= 0.02;
+      packet.life -= 0.015;
       p.fill(34, 197, 94, packet.life * 180);
       p.noStroke();
       p.rect(packet.x, packet.y, 6, 6);
@@ -832,7 +849,8 @@ function createDefconSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
@@ -849,7 +867,8 @@ function createMissionSketch(p) {
   const rings = [];
 
   p.setup = function () {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.createCanvas(container.clientWidth, container.clientHeight);
     for (let i = 0; i < 3; i += 1) {
       rings.push({ r: 70 + i * 65, angle: p.random(p.TWO_PI) });
     }
@@ -864,13 +883,13 @@ function createMissionSketch(p) {
     p.stroke(248, 250, 252, 120);
     p.strokeWeight(1.6);
     rings.forEach((ring) => {
-      ring.angle += 0.004;
+      ring.angle += 0.003;
       p.circle(cx, cy, ring.r);
     });
 
     pings.forEach((ping, index) => {
       ping.x += ping.vx;
-      ping.life -= 0.02;
+      ping.life -= 0.015;
       p.fill(248, 250, 252, ping.life * 200);
       p.noStroke();
       p.rect(ping.x, ping.y, 4, 4);
@@ -879,7 +898,8 @@ function createMissionSketch(p) {
   };
 
   p.windowResized = function () {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    const container = document.getElementById('p5-container');
+    p.resizeCanvas(container.clientWidth, container.clientHeight);
   };
 
   p.mousePressed = function () {
